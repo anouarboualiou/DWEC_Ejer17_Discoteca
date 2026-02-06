@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-const fs = require('fs');
+//const fs = require('fs');
 const path = require('path');
 
 const albumController = require('../albumes/controller');
@@ -9,15 +9,15 @@ const artistaController = require('../artistas/controller');
 const app = express();
 
 
-const accessLogStream = fs.createWriteStream(
+/*const accessLogStream = fs.createWriteStream(
   path.join(__dirname, '../access.log'),
   { flags: 'a' }
-);
+);*/
 
-app.use(morgan('combined', { stream: accessLogStream }));
+//app.use(morgan('combined', { stream: accessLogStream }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../public')));
-
+app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
   res.send(`
