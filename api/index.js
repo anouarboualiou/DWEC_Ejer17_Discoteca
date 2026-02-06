@@ -3,8 +3,8 @@ const morgan = require('morgan');
 //const fs = require('fs');
 const path = require('path');
 
-const albumController = require('../albumes/controller');
-const artistaController = require('../artistas/controller');
+const albumController = require('../album/controller');
+const artistaController = require('../artista/controller');
 
 const app = express();
 
@@ -22,8 +22,8 @@ app.use(morgan('dev'));
 app.get('/', (req, res) => {
   res.send(`
     <h1>Discoteca Virtual</h1>
-    <a href="/albumes">Ver álbumes</a><br>
-    <a href="/artistas">Ver artistas</a>
+    <a href="/album">Ver álbumes</a><br>
+    <a href="/artista">Ver artistas</a>
   `);
 });
 
